@@ -26,7 +26,6 @@ def extract_frames(video_path, frame_rate=30):
     cap.release()
     return frames
 
-
 @app.post("/analyze_video/")
 async def analyze_video(file: UploadFile = File(...)):
     # Save uploaded file temporarily
