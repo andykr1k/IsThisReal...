@@ -12,7 +12,6 @@ app = FastAPI()
 pipe = pipeline("image-classification",
                 model="prithivMLmods/Deep-Fake-Detector-v2-Model")
 
-
 def extract_frames(video_path, frame_rate=30):
     cap = cv2.VideoCapture(video_path)
     frames = []
