@@ -9,7 +9,6 @@ import os
 
 app = FastAPI()
 
-# Load model once at startup
 pipe = pipeline("image-classification",
                 model="prithivMLmods/Deep-Fake-Detector-v2-Model")
 
