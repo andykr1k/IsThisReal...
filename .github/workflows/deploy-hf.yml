@@ -23,8 +23,7 @@ jobs:
       - name: Push to Hugging Face Space
         run: |
           cd hf-backend
-          git init
-          git config --global init.defaultBranch main 
+          git init -b main
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote add origin https://huggingface.co/spaces/andykrik/IsThisReal
