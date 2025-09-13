@@ -1,0 +1,32 @@
+name: Deploy Backend to Hugging Face Spaces
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Copy backend folder
+        run: |
+          mkdir hf-backend
+          cp -r backend/* hf-backend/
+
+      - name: Push to Hugging Face Space
+        run: |
+          cd hf-backend
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote add origin https://huggingface.co/spaces/andykrik/IsThisReal
+          git add .
+          git commit -m "Deploy backend from monorepo"
+          git push --force origin main
